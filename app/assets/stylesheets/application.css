@@ -23,17 +23,20 @@ body {
     width: 50%;
 }
 
-.rec-name input {
+.rec-name input,
+.rec-new-submit input {
     background-color: rgb(37, 95, 241);
     color: #fff;
-    width: 100px;
-    height: 35px;
+    width: 150px;
+    height: 40px;
     border: none;
     border-radius: 7px;
     font-weight: 600;
+    font-size: 15px;
 }
 
-.rec-name input:hover {
+.rec-name input:hover,
+.rec-new-submit input:hover {
     background-color: #fff;
     color: #000;
     border: #000 solid 1px
@@ -41,26 +44,61 @@ body {
 
 form {
     width: 80%;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
     margin-bottom: 24px;
     border: #2f3c7e solid 1px;
     border-radius: 10px;
-
-    outline: red solid 2px;
 }
 
-form .field {
+.form-warpper {
     width: 100%;
-    outline: blue solid 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.field input {
+.field-wrapper {
+    width: 100%;
+    display: flex;
+    padding: 12px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form .field {
     width: 80%;
-    text-align: left;
+    display: flex;
+    justify-content: left;
 }
 
+.checkbox-wrapper {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+  }
+  
+  .checkbox-wrapper .checkbox {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+  }
+  
+input.field {
+    height: 35px;
+    border-radius: 5px;
+}
+
+.label {
+    display: flex;
+    width: 80%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
 

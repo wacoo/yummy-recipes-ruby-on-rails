@@ -1,34 +1,38 @@
 <% if flash[:error] %>
-    <%= flash[:error] %>
+  <%= flash[:error] %>
 <% end %>
 
 <%= form_with(model: @recipe, url: recipes_path, local: true) do |form| %>
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+  <div class="form-warpper">
+    <div class="field-wrapper">
+      <%= form.label :name, class: 'label' %>
+      <%= form.text_field :name, class: 'field' %>
     </div>
   
-    <div  class="field">
-      <%= form.label :preparation_time %>
-      <%= form.number_field :preparation_time %>
+    <div class="field-wrapper">
+      <%= form.label :preparation_time, class: 'label' %>
+      <%= form.number_field :preparation_time, class: 'field' %>
     </div>
   
-    <div  class="field">
-      <%= form.label :cooking_time %>
-      <%= form.number_field :cooking_time %>
+    <div class="field-wrapper">
+      <%= form.label :cooking_time, class: 'label' %>
+      <%= form.number_field :cooking_time, class: 'field' %>
     </div>
   
-    <div  class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description %>
+    <div class="field-wrapper">
+      <%= form.label :description, class: 'label' %>
+      <%= form.text_area :description, class: 'field' %>
     </div>
   
-    <div  class="field">
-      <%= form.label :public %>
-      <%= form.check_box :public %>
-    </div>
+    <div class="field-wrapper">
+      <div class="checkbox-wrapper">
+        <%= form.check_box :public, class: 'checkbox' %>
+        <%= form.label :public %>
+      </div>
+  </div>
 
-    <div>
-      <%= form.submit "Create Recipe" %>
+    <div class="rec-new-submit">
+      <%= form.submit "CREATE RECIPE" %>
     </div>
-  <% end %>
+  </div>
+<% end %>
