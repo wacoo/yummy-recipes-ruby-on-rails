@@ -79,6 +79,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bigdecimal (3.1.4)
     bindex (0.8.1)
     bootsnap (1.17.0)
@@ -100,6 +101,12 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    devise (4.9.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -146,6 +153,7 @@ GEM
     nio4r (2.6.0)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     parallel (1.23.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
@@ -205,6 +213,9 @@ GEM
     regexp_parser (2.8.2)
     reline (0.4.0)
       io-console (~> 0.5)
+    responders (3.1.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.2.6)
     rubocop (1.57.2)
       json (~> 2.3)
@@ -245,6 +256,8 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -271,6 +284,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  devise
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -301,6 +315,7 @@ CHECKSUMS
   addressable (2.8.5) sha256=63f0fbcde42edf116d6da98a9437f19dd1692152f1efa3fcc4741e443c772117
   ast (2.4.2) sha256=1e280232e6a33754cde542bc5ef85520b74db2aac73ec14acef453784447cc12
   base64 (0.2.0) sha256=0f25e9b21a02a0cc0cea8ef92b2041035d39350946e8789c562b2d1a3da01507
+  bcrypt (3.1.20)
   bigdecimal (3.1.4) sha256=de0c967bb24afe45e0e3d2d65e376614a430c3bc70563ac21cb3518f7409c61f
   bindex (0.8.1) sha256=7b1ecc9dc539ed8bccfc8cb4d2732046227b09d6f37582ff12e50a5047ceb17e
   bootsnap (1.17.0) sha256=6b0ea4dd68f0d424968dcd13953c3f04b13a19a8761c540d3af13507fcfa1347
@@ -311,6 +326,7 @@ CHECKSUMS
   crass (1.0.6) sha256=dc516022a56e7b3b156099abc81b6d2b08ea1ed12676ac7a5657617f012bd45d
   date (3.3.4) sha256=971f2cb66b945bcbea4ddd9c7908c9400b31a71bc316833cb42fa584b59d3291
   debug (1.8.0) sha256=502bd1ad41a9a4b51f557f181cd13650c746390a82b5d11a5d2c81600ca013da
+  devise (4.9.3)
   drb (2.2.0) sha256=e9e4af1cded3306cfe37e064a0086e302d5f40df9cb4d161d059a6bb3a75d40f
   erubi (1.12.0) sha256=27bedb74dfb1e04ff60674975e182d8ca787f2224f2e8143268c7696f42e4723
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
@@ -335,6 +351,7 @@ CHECKSUMS
   net-smtp (0.4.0) sha256=2d7eb8de289ba8dce3f0d436ee40b9366bea28354c5ba183c8ab2ec05139a3e7
   nio4r (2.6.0) sha256=b0f89a01783f177cbfee1b49dcb821061ab253c84fcb27dcdcd8c3af98aecbde
   nokogiri (1.15.5-x86_64-linux) sha256=c5d9453cc155dc15f08ac699cc1293fd994ec6cfacec48e67653aa95ee946adf
+  orm_adapter (0.5.0)
   parallel (1.23.0) sha256=27154713ad6ef32fa3dcb7788a721d6c07bca77e72443b4c6080a14145288c49
   parser (3.2.2.4) sha256=edbe6751f85599c8152173ccadbd708f444b7214de2a1d4969441a68e06ac964
   pg (1.5.4) sha256=04f7b247151c639a0b955d8e5a9a41541343f4640aa3c2bdf749a872c339d25d
@@ -357,6 +374,7 @@ CHECKSUMS
   redis-client (0.18.0) sha256=a93bd1f99c024bb7f8e21eff7bdbcb16d85dbcbfe3f6ed051239e38d4c127704
   regexp_parser (2.8.2) sha256=5e65506e536e4f14ce2cd98a3daecf20b88ac77b6268412928bec98c872e2ab5
   reline (0.4.0) sha256=234c1d03d90a0950193f1e5d6593b1dec5de4d9ab4dad746340a05dab0e5be1d
+  responders (3.1.1)
   rexml (3.2.6) sha256=e0669a2d4e9f109951cb1fde723d8acd285425d81594a2ea929304af50282816
   rubocop (1.57.2) sha256=8f679dfe42d7821dc61dafb17d14b1294343157a197b9f8a23720ca17fb9161b
   rubocop-ast (1.30.0) sha256=faad6452b1018fee0dd9e21a44445908e94ee2a4435932a9dae0e0740b6349b3
@@ -373,6 +391,7 @@ CHECKSUMS
   turbo-rails (1.5.0) sha256=b426cc762fb0940277729b3f1751a9f0bd269f5613c1d62ac73e5f0be7c7a83e
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   unicode-display_width (2.5.0) sha256=7e7681dcade1add70cb9fda20dd77f300b8587c81ebbd165d14fd93144ff0ab4
+  warden (1.2.9)
   web-console (4.2.1) sha256=e7bcf37a10ea2b4ec4281649d1cee461b32232d0a447e82c786e6841fd22fe20
   webdrivers (5.3.1) sha256=d7d5531fbc3c44b6a2a7710e3e6c5edc54f35c68af20017309e3eccf15ec4aa5
   webrick (1.8.1) sha256=19411ec6912911fd3df13559110127ea2badd0c035f7762873f58afc803e158f
