@@ -55,8 +55,6 @@ form {
 
 form .field {
     width: 100%;
-    display: flex;
-    justify-content: left;
     outline: blue solid 2px;
 }
 
