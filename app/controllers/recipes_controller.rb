@@ -17,10 +17,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     if @recipe.save
-        redirect_to @recipe, notice: 'Recipe created successfully.'
+      redirect_to @recipe, notice: 'Recipe created successfully.'
     else
-        flash.now[:error] = 'Recipe not created. Try again!'
-        render :new
+      flash.now[:error] = 'Recipe not created. Try again!'
+      render :new
     end
   end
 
@@ -28,11 +28,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     puts @recipe
-    redirect_to recipes_path, alert: "Recipe deleted successfully."
+    redirect_to recipes_path, alert: 'Recipe deleted successfully.'
     # else
     #     puts 'DDDD'
     #     redirect_to recipes_path,  alert: "Failed to delete the recipe #{@recipe.id}"
-    #end
+    # end
   end
 
   def recipe_params
