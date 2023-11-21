@@ -3,7 +3,7 @@
         <div class="rec-name">
             <h1><%= recipe.name %></h1>
             <%= form_with model: recipe, url: recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' } do |form| %>
-                <%= form.submit 'DELETE' %>
+                <%= form.submit 'REMOVE' %>
             <% end %>
         </div>
         <div class="decription">

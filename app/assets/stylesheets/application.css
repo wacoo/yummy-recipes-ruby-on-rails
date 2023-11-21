@@ -1,18 +1,42 @@
 /* Recipe */
 body {
-    width: 100vh;
+    width: 100vw;
     background-color:#fbeaeb;
     color: #2f3c7e;
     display: flex;
     flex-direction: column;
     align-items: center;
-    outline: red solid 2px;
 }
 .recipe {
     width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 24px;
     margin-bottom: 24px;
     border: #2f3c7e solid 1px;
     border-radius: 10px;
+}
+
+.decription {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.rec-name input {
+    background-color: rgb(37, 95, 241);
+    color: #fff;
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+.rec-name input:hover {
+    background-color: #fff;
+    color: #000;
+    border: #000 solid 1px
 }
 
 
