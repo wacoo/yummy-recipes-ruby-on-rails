@@ -35,6 +35,11 @@ class RecipesController < ApplicationController
     # end
   end
 
+  def shopping_list
+    @user = current_user
+    @recipes = @user.recipes.includes(:foods)
+  end
+
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
