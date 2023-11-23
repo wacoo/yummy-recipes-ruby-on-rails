@@ -5,12 +5,11 @@ def sign_in(user)
 end
 
 RSpec.describe 'Recipe', type: :request do
-
   describe 'GET #index' do
-
     let!(:user) { User.create(name: 'Lily', email: 'abc@gmail.com', password: '123456') }
     let!(:recipe) do
-      Recipe.create(name: 'Stake', preparation_time: 2, cooking_time: 6, description: 'Yummy food', public: true, user: user)
+      Recipe.create(name: 'Stake', preparation_time: 2, cooking_time: 6, description: 'Yummy food', public: true,
+                    user: user)
     end
 
     it 'should http status 200' do

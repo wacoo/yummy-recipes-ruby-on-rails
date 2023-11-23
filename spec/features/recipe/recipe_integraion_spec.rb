@@ -26,8 +26,10 @@ RSpec.describe 'Recipe', type: :system do
 
   before do
     @user2 = User.create(name: 'Lily', email: 'abc@gmail.com', password: '123456')
-    @recipe1 = Recipe.create(name: 'Stake', preparation_time: 2, cooking_time: 6, description: 'Yummy food', public: true, user: user1)
-    @recipe2 = Recipe.create(name: 'PB and J', preparation_time: 15, cooking_time: 5, description: 'Peanut butter and jam', public: false, user: user1)
+    @recipe1 = Recipe.create(name: 'Stake', preparation_time: 2, cooking_time: 6, description: 'Yummy food',
+                             public: true, user: user1)
+    @recipe2 = Recipe.create(name: 'PB and J', preparation_time: 15, cooking_time: 5,
+                             description: 'Peanut butter and jam', public: false, user: user1)
   end
   context 'index' do
     scenario 'should show recipe names' do
@@ -52,7 +54,7 @@ RSpec.describe 'Recipe', type: :system do
       fill_in 'Name', with: 'Kay wet'
       fill_in 'Preparation time', with: 2
       fill_in 'Cooking time', with: 3
-      fill_in 'Description', with: "Meat stew"
+      fill_in 'Description', with: 'Meat stew'
       check('Public')
       click_button 'CREATE RECIPE'
       expect(page).to have_content('Recipe created successfully.')
@@ -61,16 +63,15 @@ RSpec.describe 'Recipe', type: :system do
       expect(page).to have_content('Prep. time: 2')
       expect(page).to have_content('Cooking time: 3')
     end
-end
-context 'show' do
-  #TODO
-end
-  
+  end
+  context 'show' do
+    # TODO
+  end
+
   #   scenario 'should redirect to the right post' do
   #     visit user_posts_path(user1)
   #     click_link '2'
   #     click_link 'Post: Name of the fire'
   #     expect(page).to have_current_path(user_post_path(user1, @post2))
   #   end
-
 end
