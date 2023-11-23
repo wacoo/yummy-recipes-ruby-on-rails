@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
 
   def public_recipes
     @recipes = Recipe.where(public: true).includes(:user)
-    @total_quantity  = @recipes.joins(:foods).sum(:foods.quantity)
+    @total_quantity = @recipes.joins(:foods).sum(:foods.quantity)
     @total_price = @recipes.joins(:foods).sum(:foods.price)
   end
 
