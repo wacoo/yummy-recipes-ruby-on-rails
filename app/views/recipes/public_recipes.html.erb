@@ -1,0 +1,13 @@
+<% @recipes.each do |recipe| %>
+    <div class="recipe">
+        <div class="rec-name">
+            <h1><%= recipe.name %></h1>
+            <p>By <%= recipe.user.name%</p>
+        </div>
+        <div class="decription">
+            <p>Total food items: <%= @total_quantity %></p>
+            <p>Total food items: <%= @total_price %></p>
+        </div>
+    </div>
+    
+<% end %>
