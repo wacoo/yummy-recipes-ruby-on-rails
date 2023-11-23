@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get 'public_recipes', to: 'recipes#public_recipes'
   # Defines the root path route ("/")
-  #root "posts#index"
+  root "recipes#index"
   resources :recipes
   resources :foods
   resources :recipe_foods, only: [:new, :create]

@@ -1,7 +1,6 @@
 <% if flash[:error] %>
   <%= flash[:error] %>
 <% end %>
-
 <%= form_with(model: @recipe, url: recipes_path, local: true) do |form| %>
   <div class="form-warpper">
     <div class="field-wrapper">
