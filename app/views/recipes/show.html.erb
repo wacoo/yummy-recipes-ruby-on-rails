@@ -37,7 +37,7 @@
                         <td><%= food.price %></td>
                         <td>
                             <%= form_with(model: @food, url: food_path(food), method: :delete, data: { confirm: 'Are you sure you want to delete this food?' }) do |form| %>
-                            <%= form.submit 'DELETE', class: 'btn-danger' %>
+                            <%= form.submit 'DELETE', class: 'btn-primary' %>
                             <% end %>
                         </td>
                         </tr>

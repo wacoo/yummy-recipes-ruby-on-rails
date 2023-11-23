@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   #root "posts#index"
   resources :recipes
   resources :foods
+  resources :recipe_foods, only: [:new, :create]
 end

@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .foods {
@@ -31,10 +32,6 @@ body {
   width: 50%;
 }
 
-.btn-danger {
-  background-color: rgb(223, 31, 1);
-}
-
 .btn-primary {
   background-color: rgb(37, 95, 241);
 }
@@ -50,6 +47,13 @@ form {
   border: #2f3c7e solid 1px;
   border-radius: 10px;
   border-collapse: collapse;
+}
+
+td form,
+th form {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0;
 }
 
 .public input {
@@ -86,8 +90,8 @@ table tr form,
 .btn-danger:hover,
 .btn-primary:hover {
   background-color: #fff;
-  color: #000;
-  border: #000 solid 1px;
+  color: #2f3c7e;
+  border: #2f3c7e solid 1px;
 }
 
 .form-warpper {
@@ -147,17 +151,15 @@ input.field {
   justify-content: space-between;
   align-items: center;
   padding: 24px;
-  border: black solid 1px;
+  border: #2f3c7e solid 1px;
   border-radius: 10px;
 }
 
 table {
-  /* color: #fff; */
   border-collapse: collapse;
   border-radius: 10px;
-
-  /* background-color: #666d92; */
   border: #fff solid 2px;
+  margin-bottom: 50px;
 }
 
 .foods th {
@@ -191,5 +193,9 @@ table {
 .add-food th {
   background-color: transparent;
   border: none;
-  height: 200px;
+}
+
+a {
+  text-decoration: none;
+  color: #2f3c7e;
 }
