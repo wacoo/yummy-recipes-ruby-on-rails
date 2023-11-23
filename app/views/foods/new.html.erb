@@ -1,25 +1,31 @@
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+
 <%= form_with(model: @food) do |form| %>
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+  <div class="form-wrapper">
+    <div class="field-wrapper">
+      <%= form.label :name, class: 'label' %>
+      <%= form.text_field :name, class: 'field' %>
     </div>
-  
-    <div class="field">
-      <%= form.label :measurement_unit %>
-      <%= form.text_field :measurement_unit %>
+
+    <div class="field-wrapper">
+      <%= form.label :measurement_unit, class: 'label' %>
+      <%= form.text_field :measurement_unit, class: 'field' %>
     </div>
-  
-    <div class="field">
-      <%= form.label :price %>
-      <%= form.text_field :price %>
+
+    <div class="field-wrapper">
+      <%= form.label :price, class: 'label' %>
+      <%= form.text_field :price, class: 'field' %>
     </div>
-  
-    <div class="field">
-      <%= form.label :quantity %>
-      <%= form.number_field :quantity %>
+
+    <div class="field-wrapper">
+      <%= form.label :quantity, class: 'label' %>
+      <%= form.number_field :quantity, class: 'field' %>
     </div>
-  
-    <div class="actions">
-      <%= form.submit %>
+
+    <div class="rec-new-submit">
+      <%= form.submit "CREATE FOOD", class: "btn-primary" %>
     </div>
-  <% end %>
+  </div>
+<% end %>

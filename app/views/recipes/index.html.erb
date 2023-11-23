@@ -1,9 +1,9 @@
 <% @recipes.each do |recipe| %>
     <div class="recipe">
         <div class="rec-name">
-            <h1><%= recipe.name %></h1>
+            <h1><%= link_to recipe.name, recipe_path(recipe) %></h1>
             <%= form_with model: recipe, url: recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' } do |form| %>
-                <%= form.submit 'REMOVE' %>
+                <%= form.submit 'REMOVE', class: "btn-danger" %>
             <% end %>
         </div>
         <div class="decription">

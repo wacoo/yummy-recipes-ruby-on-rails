@@ -1,5 +1,14 @@
 <div class="foods">
-  <%= link_to 'Add Food', new_food_path %>
+<table class="add-food">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th> <%= link_to 'ADD FOOD', new_food_path, class: "btn-primary" %></th>
+      </tr>
+    </thead>
+  </table>
   <table>
     <thead>
       <tr>
@@ -17,7 +26,7 @@
           <td><%= food.price %></td>
           <td>
             <%= form_with(model: @food, url: food_path(food), method: :delete, data: { confirm: 'Are you sure you want to delete this food?' }) do |form| %>
-              <%= form.submit 'Delete', class: 'btn btn-danger' %>
+              <%= form.submit 'DELETE', class: 'btn-danger' %>
             <% end %>
           </td>
         </tr>

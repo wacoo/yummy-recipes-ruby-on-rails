@@ -1,5 +1,49 @@
-<h1><%= @recipe.name %></h1>
-<p>Owner: <%= @recipe.user.name %></p>
-<p>Description: <%= @recipe.description %></p>
-<p>Prep. time: <%= @recipe.preparation_time %></p>
-<p>Cooking time: <%= @recipe.cooking_time %></p>
+<div class="foods">
+  <%= link_to 'Add Food', new_food_path, class: "btn-primary" %>
+    <div class="wrapper">
+        <div class="time">
+        <h1><%= @recipe.name %></h1>
+        <p>Preparation time: <%= @recipe.preparation_time %> hours</p>
+        <p>Cooking time: <%= @recipe.cooking_time %> hours</p>
+        <h2>Steps:</h2>
+        <p><%= @recipe.description %></p>
+        </div>
+        <div class="public">
+        <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch) do |form| %>
+            <%= form.check_box :public, onchange: "this.form.submit();" %>
+            <%= form.label :public, 'Public' %>
+        <% end %>
+        </div>
+    </div>
+    <div class="detail-buttons">
+        <%= link_to 'GENERATE SHOPPING LIST', '/general_shopping_list', class: "btn-primary" %>
+        <%= link_to 'ADD INGREDIENTS', '/foods', class: "btn-primary" %>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Food</th>
+                    <th>Quantity</th>
+                    <th>Value</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <% @recipe.foods.each do |food| %>
+                        <tr>
+                        <td><%= food.name %></td>
+                        <td><%= food.quantity %></td>
+                        <td><%= food.price %></td>
+                        <td>
+                            <%= form_with(model: @food, url: food_path(food), method: :delete, data: { confirm: 'Are you sure you want to delete this food?' }) do |form| %>
+                            <%= form.submit 'DELETE', class: 'btn-danger' %>
+                            <% end %>
+                        </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+        </table>
+    </div>
+    
+</div>
