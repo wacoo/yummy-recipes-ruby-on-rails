@@ -21,7 +21,7 @@
     <% if current_user == @recipe.user || current_user.role == 'Admin' %>
         <div class="detail-buttons">
             <%= link_to 'GENERATE SHOPPING LIST', '/general_shopping_list', class: "btn-primary" %>
-            <%= link_to 'ADD INGREDIENTS', '/foods', class: "btn-primary" %>
+            <%= link_to 'ADD INGREDIENTS', new_recipe_recipe_food_path(@recipe), class: "btn-primary" %>
         </div>
     <% end %>
     <div class="table">
@@ -40,15 +40,16 @@
                         <td><%= food.name %></td>
                         <td><%= food.quantity %></td>
                         <td><%= food.price %></td>
-                        <% if current_user == @recipe.user || current_user.role == 'Admin' %>
                             <td>
+
+                            <% if current_user == @recipe.user || current_user.role == 'Admin' %>
                                 <%= form_with(model: @food, url: food_path(food), method: :delete, data: { confirm: 'Are you sure you want to delete this food?' }) do |form| %>
-                                <%= form.submit 'DELETE', class: 'btn-primary' %>
+                                    <%= form.submit 'DELETE', class: 'btn-primary' %>
                                 <% end %>
+                            <% end %>
                             </td>
                         <% end %>
                         </tr>
-                    <% end %>
                 </tbody>
         </table>
     </div>
