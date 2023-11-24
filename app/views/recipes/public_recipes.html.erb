@@ -1,9 +1,9 @@
-<h2>Public Recipes</h2>
+<h1>Public Recipes</h1>
 
 <% @recipes.each do |recipe| %>
   <div class="recipe">
     <div class="rec-name">
-      <h1><%= link_to recipe.name, recipe_path(recipe) %></h1>
+      <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
       <p>By <%= recipe.user.name %></p>
       <% if current_user == recipe.user || current_user.role == 'Admin' %>
             <%= form_with model: recipe, url: recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' } do |form| %>

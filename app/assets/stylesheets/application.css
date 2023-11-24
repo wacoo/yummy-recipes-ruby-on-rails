@@ -1,6 +1,21 @@
-/* Recipe */
+* {
+  margin: 0;
+}
+
+h1 {
+  margin: 15px;
+}
+
+h2 {
+  margin: 13px;
+}
+
+p {
+  margin: 12px;
+}
+
 body {
-  width: 100vw;
+  width: 100%;
   background-color: #fbeaeb;
   color: #2f3c7e;
   display: flex;
@@ -11,12 +26,14 @@ body {
 
   
 header {
-  height: 45px;
+  width: calc(100% - 60px);
+  height: 60px;
+  margin-bottom: 30px;
   background-color: #2f3c7e;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 12px;
+  padding: 12px 60px;
   border-bottom: #fff solid 2px;
 }
 
@@ -34,6 +51,11 @@ li a {
   padding: 10px 12px;
   color: #fff;
   font-weight: 700;
+}
+
+header .logo {
+  width: 60px;
+  border-radius: 50%;
 }
 
 .foods {
@@ -102,10 +124,20 @@ table tr form,
   border: none;
 }
 
-.public input {
+.public input,
+.remember input {
   width: 35px;
   height: 35px;
+  margin-right: 12px;
+  font-size: 15px;
 }
+
+.remember {
+  width: 80%;
+  display: flex;
+  justify-content: left;
+}
+
 
 .rec-name input,
 .rec-new-submit input,
@@ -282,12 +314,15 @@ a {
   padding: 12px;
 }
 
-.edit-form,
-.add-rec {
+.edit-form {
   width: calc(80% + 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .add-rec {
+  width: calc(80% + 30px);
   display: flex;
   justify-content: right;
   margin-bottom: 30px;
