@@ -8,7 +8,7 @@ RSpec.describe 'Food', type: :request do
   describe 'GET #index' do
     let!(:user) { User.create(name: 'Lily', email: 'abc@gmail.com', password: '123456', role: 'Admin') }
     let!(:food) do
-        Food.new(name: 'Apple', measurement_unit: 'KG', price: 6, quantity: 10, user: user)
+      Food.new(name: 'Apple', measurement_unit: 'KG', price: 6, quantity: 10, user: user)
     end
     it 'should http status 200' do
       sign_in(user)

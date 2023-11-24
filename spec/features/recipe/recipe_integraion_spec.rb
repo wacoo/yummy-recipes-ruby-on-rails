@@ -91,40 +91,40 @@ RSpec.describe 'Recipe', type: :system do
     end
   end
 
-    scenario 'should redirect to the general shopping list' do
-      visit recipe_path(@recipe2)
-      sign_in(user1)
-      click_link 'GENERATE SHOPPING LIST'
-      expect(page).to have_current_path('/general_shopping_list')
-    end
+  scenario 'should redirect to the general shopping list' do
+    visit recipe_path(@recipe2)
+    sign_in(user1)
+    click_link 'GENERATE SHOPPING LIST'
+    expect(page).to have_current_path('/general_shopping_list')
+  end
 
-    scenario 'should redirect to the add ingredients page' do
-      visit recipe_path(@recipe2)
-      sign_in(user1)
-      click_link 'ADD INGREDIENTS'
-      expect(page).to have_current_path(new_recipe_recipe_food_path(@recipe2))
-    end
+  scenario 'should redirect to the add ingredients page' do
+    visit recipe_path(@recipe2)
+    sign_in(user1)
+    click_link 'ADD INGREDIENTS'
+    expect(page).to have_current_path(new_recipe_recipe_food_path(@recipe2))
+  end
 
-    context 'general shopping list' do
-      scenario 'should have content' do
-        visit '/general_shopping_list'
-        sign_in(user1)
-        expect(page).to have_content('General Shopping List')
-        expect(page).to have_content('Food')
-        expect(page).to have_content('Quantity')
-        expect(page).to have_content('Price')
-      end
+  context 'general shopping list' do
+    scenario 'should have content' do
+      visit '/general_shopping_list'
+      sign_in(user1)
+      expect(page).to have_content('General Shopping List')
+      expect(page).to have_content('Food')
+      expect(page).to have_content('Quantity')
+      expect(page).to have_content('Price')
     end
-    
-    context 'public recipes' do
-      scenario 'should have content' do
-        visit '/public_recipes'
-        sign_in(user1)
-        expect(page).to have_content('Public Recipes')
-        expect(page).to have_content('Total food items')
-        expect(page).to have_content('Total price')
-        expect(page).to have_content('Stake')
-        expect(page).to have_content('By John')
-      end
+  end
+
+  context 'public recipes' do
+    scenario 'should have content' do
+      visit '/public_recipes'
+      sign_in(user1)
+      expect(page).to have_content('Public Recipes')
+      expect(page).to have_content('Total food items')
+      expect(page).to have_content('Total price')
+      expect(page).to have_content('Stake')
+      expect(page).to have_content('By John')
     end
+  end
 end

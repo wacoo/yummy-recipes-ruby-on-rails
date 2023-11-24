@@ -24,7 +24,6 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-  
 header {
   width: calc(100% - 60px);
   height: 60px;
@@ -137,7 +136,6 @@ table tr form,
   display: flex;
   justify-content: left;
 }
-
 
 .rec-name input,
 .rec-new-submit input,
@@ -303,11 +301,6 @@ table {
 .update-th {
   background-color: rgb(72, 162, 226);
   border: green solid 1px;
-}
-
-a {
-  text-decoration: none;
-  color: #2f3c7e;
 }
 
 .actions {

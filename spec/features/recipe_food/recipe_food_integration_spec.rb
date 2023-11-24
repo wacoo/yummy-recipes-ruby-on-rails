@@ -33,7 +33,7 @@ RSpec.describe 'RecipeFood', type: :system do
     @food1 = Food.create(name: 'Apple', measurement_unit: 'KG', price: 6, quantity: 10, user: user1)
     @food2 = Food.create(name: 'Ginger', measurement_unit: 'PCs', price: 3, quantity: 5, user: user1)
   end
-  
+
   context 'new' do
     scenario 'from submission should successfully' do
       visit new_recipe_recipe_food_path(@recipe1)
