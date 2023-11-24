@@ -1,0 +1,27 @@
+<div class="foods">
+  <h2>General Shopping List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="food">Food</th>
+        <th class="quantity">Quantity</th>
+        <th class="price">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @shopping_list.present? %>
+        <% @shopping_list.each do |item| %>
+          <tr>
+            <td class="food"><%= item[:food_name] %></td>
+            <td class="quantity"><%= item[:quantity_to_shop] %> <%=  item[:measurement_unit] %></td>
+            <td class="price">$ <%= item[:price] %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="3" class="no-ingredients">No ingredients to shop.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
