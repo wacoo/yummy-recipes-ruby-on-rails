@@ -25,7 +25,7 @@ After you're finished please remove all the comments and instructions!
 -->
 
 <div style="text-align: center;">
-  <img src="logo.jpg" width="300px" alt="Logo">
+  <img src="app/assets/images/logo.jpg" width="300px" alt="Logo">
 </div>
 <!-- TABLE OF CONTENTS -->
 

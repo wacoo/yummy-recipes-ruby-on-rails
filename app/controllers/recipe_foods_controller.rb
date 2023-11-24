@@ -1,4 +1,6 @@
 class RecipeFoodsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
   layout 'application'
   def new
     @recipe_food = RecipeFood.new
@@ -8,7 +10,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = RecipeFood.new(recipe_food_params)
     @recipe_food.recipe_id = params[:recipe_id]
     if @recipe_food.save
-      flash[:success] = 'Recipe food created successfully!'
+      flash[:notice] = 'Recipe food created successfully!'
       redirect_to recipe_path(@recipe_food.recipe_id)
     else
       flash.now[:error] = 'Failed to create recipe food.'
