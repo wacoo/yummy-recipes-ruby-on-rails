@@ -11,7 +11,7 @@ RSpec.describe 'User', type: :system do
     driven_by(:rack_test)
   end
   let(:user1) do
-    User.create(name: 'John', email: 'xyz@gmail.com', password: '123456')
+    User.create(name: 'John', email: 'xyz@gmail.com', password: '123456', role: 'Admin')
   end
   # before do
   #   @user2 = Recipe.create(name: 'Lily', photo: 'https://media.giphy.com/media/K4x1ZL36xWCf6/giphy.gif',

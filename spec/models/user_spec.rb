@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Tom', email: 'example@gmail.com', password: '123456') }
+  subject { User.new(name: 'Tom', email: 'example@gmail.com', password: '123456', role: 'Admin') }
   before { subject.save }
 
   it('empty name should not be valid') do

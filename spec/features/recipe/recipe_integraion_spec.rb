@@ -21,7 +21,7 @@ RSpec.describe 'Recipe', type: :system do
   end
 
   let(:user1) do
-    User.create(name: 'John', email: 'xyz@gmail.com', password: '123456')
+    User.create(name: 'John', email: 'xyz@gmail.com', password: '123456', role: 'Admin')
   end
 
   before do
@@ -45,6 +45,20 @@ RSpec.describe 'Recipe', type: :system do
       expect(page).to have_content('Yummy food')
       expect(page).to have_content('Peanut butter and jam')
     end
+
+    scenario 'should navigate to details page' do
+      visit recipes_path
+      sign_in(user1)
+      click_link 'Stake'
+      expect(page).to have_current_path(recipe_path(@recipe1.id))
+    end
+
+    scenario 'should remove a recipe' do
+      visit recipes_path
+      sign_in(user1)
+      click_button('REMOVE', match: :first)
+      expect(page).to have_content('Recipe deleted successfully.')
+    end
   end
 
   context 'new' do
@@ -59,19 +73,58 @@ RSpec.describe 'Recipe', type: :system do
       click_button 'CREATE RECIPE'
       expect(page).to have_content('Recipe created successfully.')
       expect(page).to have_content('Owner: John')
-      expect(page).to have_content('Description: Meat stew')
-      expect(page).to have_content('Prep. time: 2')
-      expect(page).to have_content('Cooking time: 3')
+      expect(page).to have_content('Meat stew')
+      expect(page).to have_content('Preparation time: 2 hours')
+      expect(page).to have_content('Cooking time: 3 hours')
     end
   end
   context 'show' do
-    # TODO
+    scenario 'should show recipe name' do
+      visit recipe_path(@recipe2)
+      sign_in(user1)
+      expect(page).to have_content('PB and J')
+      expect(page).to have_content('Peanut butter and jam')
+      expect(page).to have_content('Preparation time: 15 hours')
+      expect(page).to have_content('Cooking time: 5 hours')
+      expect(page).to have_content('GENERATE SHOPPING LIST')
+      expect(page).to have_content('ADD INGREDIENTS')
+    end
   end
 
-  #   scenario 'should redirect to the right post' do
-  #     visit user_posts_path(user1)
-  #     click_link '2'
-  #     click_link 'Post: Name of the fire'
-  #     expect(page).to have_current_path(user_post_path(user1, @post2))
-  #   end
+    scenario 'should redirect to the general shopping list' do
+      visit recipe_path(@recipe2)
+      sign_in(user1)
+      click_link 'GENERATE SHOPPING LIST'
+      expect(page).to have_current_path('/general_shopping_list')
+    end
+
+    scenario 'should redirect to the add ingredients page' do
+      visit recipe_path(@recipe2)
+      sign_in(user1)
+      click_link 'ADD INGREDIENTS'
+      expect(page).to have_current_path(new_recipe_recipe_food_path(@recipe2))
+    end
+
+    context 'general shopping list' do
+      scenario 'should have content' do
+        visit '/general_shopping_list'
+        sign_in(user1)
+        expect(page).to have_content('General Shopping List')
+        expect(page).to have_content('Food')
+        expect(page).to have_content('Quantity')
+        expect(page).to have_content('Price')
+      end
+    end
+    
+    context 'public recipes' do
+      scenario 'should have content' do
+        visit '/public_recipes'
+        sign_in(user1)
+        expect(page).to have_content('Public Recipes')
+        expect(page).to have_content('Total food items')
+        expect(page).to have_content('Total price')
+        expect(page).to have_content('Stake')
+        expect(page).to have_content('By John')
+      end
+    end
 end

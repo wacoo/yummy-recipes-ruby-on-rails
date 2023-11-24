@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
   layout 'application'
   def index
     @foods = current_user.foods.includes(:user)
@@ -31,6 +33,16 @@ class FoodsController < ApplicationController
       puts 'SDSDS'
       flash[:notice] = 'Failed to update food.'
       render :edit
+    end
+  end
+
+  def destroy
+    @food = Food.find(params[:id])
+    puts @food.name
+    if @food.destroy
+      redirect_to foods_path, notice: 'Food removed successfully.'
+    else
+      redirect_to foods_path, error: 'Failed to remove food.'
     end
   end
 
