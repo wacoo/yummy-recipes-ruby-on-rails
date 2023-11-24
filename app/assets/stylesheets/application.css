@@ -59,6 +59,7 @@ th form {
 table tr form,
 .public form {
   border: none;
+  margin: 12px 0;
 }
 
 .rec-name form {
@@ -89,6 +90,31 @@ table tr form,
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.action-wrapper {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.action-wrapper form {
+  /* margin-bottom: 12px; */
+  margin: 0;
+}
+
+.action-wrapper .btn {
+  width: 80%;
+  font-weight: 500;
+}
+
+.action-wrapper a.btn {
+  height: 20px;
+  padding: 8px 0;
+  margin-bottom: 12px;
 }
 
 .field input {
@@ -182,7 +208,7 @@ table {
 .foods td,
 .foods th {
   width: 255px;
-  height: 80px;
+  height: 100px;
   border: green solid 2px;
   text-align: center;
   font-weight: 700;
@@ -206,6 +232,11 @@ table {
 .add-food th {
   background-color: transparent;
   border: none;
+}
+
+.update-th {
+  background-color: rgb(72, 162, 226);
+  border: green solid 2px;
 }
 
 a {

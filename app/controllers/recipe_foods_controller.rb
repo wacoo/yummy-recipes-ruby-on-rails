@@ -16,6 +16,12 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe_food.destroy
+    redirect_to recipe_path(@recipe_food.recipe), notice: 'Food item deleted successfully.'
+  end
+
   def recipe_food_params
     params.require(:recipe_food).permit(:quantity, :food_id)
   end

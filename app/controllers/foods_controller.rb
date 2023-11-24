@@ -19,15 +19,30 @@ class FoodsController < ApplicationController
     end
   end
 
-  def destroy
+  def edit
     @food = Food.find(params[:id])
-    @food.user = current_user
-    if @food.destroy
-      redirect_to foods_path, notice: 'Food removed successfully.'
+  end
+
+  def update
+    @food = Food.find(params[:id])
+    if @food.update(food_params)
+      redirect_to @food, notice: 'Food was successfully modified.'
     else
-      redirect_to foods_path, error: 'Failed to remove food.'
+      puts 'SDSDS'
+      flash[:notice] = 'Failed to update food.'
+      render :edit
     end
   end
+
+  # def destroy
+  #   @food = Food.find(params[:id])
+  #   puts @food.name
+  #   if @food.destroy
+  #     redirect_to foods_path, notice: 'Food removed successfully.'
+  #   else
+  #     redirect_to foods_path, error: 'Failed to remove food.'
+  #   end
+  # end
 
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
