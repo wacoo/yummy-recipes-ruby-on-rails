@@ -48,25 +48,25 @@ class RecipesController < ApplicationController
   def general_shopping_list
     @user = current_user
     @recipes = @user.recipes.includes(foods: :recipe_foods)
-  
+
     @shopping_list = []
-  
+
     @recipes.each do |recipe|
       puts recipe.name
       recipe.foods.each do |food|
         available_quantity = food.quantity
         required_quantity = recipe.recipe_foods.find_by(food_id: food.id).quantity
         quantity_to_shop = required_quantity - available_quantity
-  
-        if quantity_to_shop > 0
-          @shopping_list << {
-            recipe_name: recipe.name,
-            food_name: food.name,
-            quantity_to_shop: quantity_to_shop,
-            price: food.price * quantity_to_shop,
-            measurement_unit: food.measurement_unit
-          }
-        end
+
+        next unless quantity_to_shop.positive?
+
+        @shopping_list << {
+          recipe_name: recipe.name,
+          food_name: food.name,
+          quantity_to_shop: quantity_to_shop,
+          price: food.price * quantity_to_shop,
+          measurement_unit: food.measurement_unit
+        }
       end
     end
   end
