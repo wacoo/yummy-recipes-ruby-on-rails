@@ -9,6 +9,27 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+header {
+  height: 45px;
+  background-color: #2f3c7e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 12px;
+  border-bottom: #fff solid 2px;
+}
+
+header ul {
+  list-style-type: none;
+  display: flex;
+}
+
+li a {
+  padding: 10px 12px;
+  color: #fff;
+  font-weight: 700;
+}
+
 .foods {
   display: flex;
   flex-direction: column;
