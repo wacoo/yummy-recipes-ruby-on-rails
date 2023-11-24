@@ -37,7 +37,7 @@ body {
 }
 
 form {
-  width: 80%;
+  width: 100%;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -56,14 +56,19 @@ th form {
   margin-bottom: 0;
 }
 
-.public input {
-  width: 35px;
-  height: 35px;
-}
-
 table tr form,
 .public form {
   border: none;
+}
+
+.rec-name form {
+  padding: 0;
+  min-height: 0;
+}
+
+.public input {
+  width: 35px;
+  height: 35px;
 }
 
 .rec-name input,
@@ -83,6 +88,11 @@ table tr form,
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.field input {
+  border: #000 solid 1px;
+  border-radius: 5px;
 }
 
 .rec-name input:hover,
@@ -113,6 +123,8 @@ table tr form,
 
 form .field {
   width: 80%;
+  height: 40px;
+  margin: 12px;
   display: flex;
   justify-content: left;
 }
@@ -176,7 +188,7 @@ table {
 }
 
 .table {
-  width: 80%;
+  width: 84%;
 }
 
 .detail-buttons {
@@ -198,4 +210,19 @@ table {
 a {
   text-decoration: none;
   color: #2f3c7e;
+}
+
+.actions {
+  padding: 12px;
+}
+
+.edit-form,
+.add-rec {
+  width: calc(80% + 30px);
+}
+
+.add-rec {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 30px;
 }

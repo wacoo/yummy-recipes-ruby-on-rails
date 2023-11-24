@@ -85,6 +85,7 @@ GEM
     bootsnap (1.17.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cancancan (3.5.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -300,6 +301,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  cancancan
   capybara
   debug
   devise
@@ -339,6 +341,7 @@ CHECKSUMS
   bindex (0.8.1) sha256=7b1ecc9dc539ed8bccfc8cb4d2732046227b09d6f37582ff12e50a5047ceb17e
   bootsnap (1.17.0) sha256=6b0ea4dd68f0d424968dcd13953c3f04b13a19a8761c540d3af13507fcfa1347
   builder (3.2.4) sha256=99caf08af60c8d7f3a6b004029c4c3c0bdaebced6c949165fe98f1db27fbbc10
+  cancancan (3.5.0) sha256=85fe7777f3c65fb5e55612bd1cacbd52963a981bbc697eefd5ff57edb64bb6c0
   capybara (3.39.2) sha256=d6f0ca5f30897e64789428d4b047a0df105815a302069913578ac35d5ca99884
   concurrent-ruby (1.2.2) sha256=3879119b8b75e3b62616acc256c64a134d0b0a7a9a3fcba5a233025bcde22c4f
   connection_pool (2.4.1) sha256=0f40cf997091f1f04ff66da67eabd61a9fe0d4928b9a3645228532512fab62f4
