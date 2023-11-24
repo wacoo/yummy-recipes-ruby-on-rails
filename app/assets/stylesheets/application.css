@@ -24,6 +24,11 @@ header ul {
   display: flex;
 }
 
+a {
+  text-decoration: none;
+  color: #2f3c7e;
+}
+
 li a {
   padding: 10px 12px;
   color: #fff;
@@ -265,11 +270,6 @@ table {
 .update-th {
   background-color: rgb(72, 162, 226);
   border: green solid 1px;
-}
-
-a {
-  text-decoration: none;
-  color: #2f3c7e;
 }
 
 .actions {
