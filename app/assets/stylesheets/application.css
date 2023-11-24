@@ -9,6 +9,32 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+header {
+  height: 45px;
+  background-color: #2f3c7e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 12px;
+  border-bottom: #fff solid 2px;
+}
+
+header ul {
+  list-style-type: none;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: #2f3c7e;
+}
+
+li a {
+  padding: 10px 12px;
+  color: #fff;
+  font-weight: 700;
+}
+
 .foods {
   display: flex;
   flex-direction: column;
@@ -62,6 +88,13 @@ table tr form,
   margin: 12px 0;
 }
 
+.rec-name {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .rec-name form {
   padding: 0;
   min-height: 0;
@@ -102,7 +135,6 @@ table tr form,
 }
 
 .action-wrapper form {
-  /* margin-bottom: 12px; */
   margin: 0;
 }
 
@@ -197,8 +229,9 @@ input.field {
 table {
   border-collapse: collapse;
   border-radius: 10px;
-  border: #fff solid 2px;
+  background-color: #3e50a7;
   margin-bottom: 50px;
+  color: #fff;
 }
 
 .foods th {
@@ -209,7 +242,7 @@ table {
 .foods th {
   width: 255px;
   height: 100px;
-  border: green solid 2px;
+  border: green solid 1px;
   text-align: center;
   font-weight: 700;
 }
@@ -236,12 +269,7 @@ table {
 
 .update-th {
   background-color: rgb(72, 162, 226);
-  border: green solid 2px;
-}
-
-a {
-  text-decoration: none;
-  color: #2f3c7e;
+  border: green solid 1px;
 }
 
 .actions {
@@ -257,4 +285,8 @@ a {
   display: flex;
   justify-content: right;
   margin-bottom: 30px;
+}
+
+.af-link {
+  background-color: transparent;
 }
