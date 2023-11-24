@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   load_and_authorize_resource
   layout 'application'
   def index
-    @recipes = Recipe.all
+    @recipes = current_user.recipes.includes(:user)
   end
 
   def show
@@ -39,16 +39,36 @@ class RecipesController < ApplicationController
     @recipe.destroy
     puts @recipe
     redirect_to recipes_path, alert: 'Recipe deleted successfully.'
-    # else
-    #     puts 'DDDD'
-    #     redirect_to recipes_path,  alert: "Failed to delete the recipe #{@recipe.id}"
-    # end
   end
 
   def public_recipes
     @recipes = Recipe.where(public: true).includes(:user)
-    @total_quantity = @recipes.joins(:foods).sum(:foods.quantity)
-    @total_price = @recipes.joins(:foods).sum(:foods.price)
+  end
+
+  def general_shopping_list
+    @user = current_user
+    @recipes = @user.recipes.includes(foods: :recipe_foods)
+  
+    @shopping_list = []
+  
+    @recipes.each do |recipe|
+      puts recipe.name
+      recipe.foods.each do |food|
+        available_quantity = food.quantity
+        required_quantity = recipe.recipe_foods.find_by(food_id: food.id).quantity
+        quantity_to_shop = required_quantity - available_quantity
+  
+        if quantity_to_shop > 0
+          @shopping_list << {
+            recipe_name: recipe.name,
+            food_name: food.name,
+            quantity_to_shop: quantity_to_shop,
+            price: food.price * quantity_to_shop,
+            measurement_unit: food.measurement_unit
+          }
+        end
+      end
+    end
   end
 
   def recipe_params

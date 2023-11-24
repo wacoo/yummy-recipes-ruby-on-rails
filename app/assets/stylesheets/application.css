@@ -62,6 +62,13 @@ table tr form,
   margin: 12px 0;
 }
 
+.rec-name {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .rec-name form {
   padding: 0;
   min-height: 0;
@@ -102,7 +109,6 @@ table tr form,
 }
 
 .action-wrapper form {
-  /* margin-bottom: 12px; */
   margin: 0;
 }
 
@@ -196,9 +202,10 @@ input.field {
 
 table {
   border-collapse: collapse;
-  border-radius: 10px;
-  border: #fff solid 2px;
+  border-radius: 10px;  
+  background-color: #3e50a7;
   margin-bottom: 50px;
+  color: #fff;
 }
 
 .foods th {
@@ -209,7 +216,7 @@ table {
 .foods th {
   width: 255px;
   height: 100px;
-  border: green solid 2px;
+  border: green solid 1px;
   text-align: center;
   font-weight: 700;
 }
@@ -236,7 +243,7 @@ table {
 
 .update-th {
   background-color: rgb(72, 162, 226);
-  border: green solid 2px;
+  border: green solid 1px;
 }
 
 a {
@@ -257,4 +264,8 @@ a {
   display: flex;
   justify-content: right;
   margin-bottom: 30px;
+}
+
+.af-link {
+  background-color: transparent;
 }
