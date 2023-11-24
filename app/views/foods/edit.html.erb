@@ -11,6 +11,10 @@
       <%= form.number_field :quantity, class: "field", min: 1, required: true %>
     </div>
     <div class="field-wrapper">
+      <%= form.label :price, class: "label" %>
+      <%= form.number_field :price, class: "field", step: 0.01, required: true %>
+    </div>
+    <div class="field-wrapper">
       <%= form.submit "Update Ingredient", class: "btn-primary" %>
     </div>
   </div>
