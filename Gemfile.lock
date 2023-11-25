@@ -121,7 +121,7 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.9.0)
+    irb (1.9.1)
       rdoc
       reline (>= 0.3.8)
     jbuilder (2.11.5)
@@ -143,7 +143,7 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
-    net-imap (0.4.5)
+    net-imap (0.4.6)
       date
       net-protocol
     net-pop (0.1.2)
@@ -152,7 +152,7 @@ GEM
       timeout
     net-smtp (0.4.0)
       net-protocol
-    nio4r (2.6.0)
+    nio4r (2.6.1)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -300,11 +300,11 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  x86_64-linux
   x86_64-linux-gnu
 
 DEPENDENCIES
   bootsnap
+  bundler (~> 2.5.a)
   cancancan
   capybara
   debug
@@ -361,7 +361,7 @@ CHECKSUMS
   i18n (1.14.1) sha256=9d03698903547c060928e70a9bc8b6b87fda674453cda918fc7ab80235ae4a61
   importmap-rails (1.2.3) sha256=31f1d82efe03436f3d863626846d0cdfb64e143f2e63690913279e37354312d9
   io-console (0.6.0) sha256=ce9d9a3455be48c56cac65b8ef7ec59b07526343905f9fda138791005b563336
-  irb (1.9.0) sha256=bb7c14302574c8c03c81ba6630878dfea7aa7238e666a67ccfa445c34a624214
+  irb (1.9.1) sha256=8910a1cf5df7b80b744d762371d582130fdea72e4834e48875caa9a58b9af72a
   jbuilder (2.11.5) sha256=ea6234b334f4afc9205eaa136729da2904731ca01ff05d4db3173b70ebeba8c0
   json (2.6.3) sha256=86aaea16adf346a2b22743d88f8dcceeb1038843989ab93cda44b5176c845459
   language_server-protocol (3.17.0.3) sha256=3d5c58c02f44a20d972957a9febe386d7e7468ab3900ce6bd2b563dd910c6b3f
@@ -373,11 +373,11 @@ CHECKSUMS
   minitest (5.20.0) sha256=a3faf26a757ced073aaae0bd10481340f53e221a4f50d8a6033591555374752e
   msgpack (1.7.2) sha256=59ab62fd8a4d0dfbde45009f87eb6f158ab2628a7c48886b0256f175166baaa8
   mutex_m (0.2.0) sha256=b6ef0c6c842ede846f2ec0ade9e266b1a9dac0bc151682b04835e8ebd54840d5
-  net-imap (0.4.5) sha256=ca4466bfd7266eac15f93ef046431fbe9fcb354ed7d624f070c0e7d1c89cfc8a
+  net-imap (0.4.6) sha256=31975db12d9f7979338ad29934ded585a1fdc881b096dc72b35596a563281a3e
   net-pop (0.1.2) sha256=848b4e982013c15b2f0382792268763b748cce91c9e91e36b0f27ed26420dff3
   net-protocol (0.2.2) sha256=aa73e0cba6a125369de9837b8d8ef82a61849360eba0521900e2c3713aa162a8
   net-smtp (0.4.0) sha256=2d7eb8de289ba8dce3f0d436ee40b9366bea28354c5ba183c8ab2ec05139a3e7
-  nio4r (2.6.0) sha256=b0f89a01783f177cbfee1b49dcb821061ab253c84fcb27dcdcd8c3af98aecbde
+  nio4r (2.6.1) sha256=284aae4adc431498a8f2a8e6027da72bca5f2ea8134d770ffc6f8e45bf6b29f9
   nokogiri (1.15.5-x86_64-linux) sha256=c5d9453cc155dc15f08ac699cc1293fd994ec6cfacec48e67653aa95ee946adf
   orm_adapter (0.5.0) sha256=aa5d0be5d540cbb46d3a93e88061f4ece6a25f6e97d6a47122beb84fe595e9b9
   parallel (1.23.0) sha256=27154713ad6ef32fa3dcb7788a721d6c07bca77e72443b4c6080a14145288c49
