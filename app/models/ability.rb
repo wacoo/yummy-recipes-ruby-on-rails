@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
     can :manage, :all if user.role == 'Admin'
 
     can :manage, [Recipe, Food], user_id: user.id
@@ -9,6 +10,8 @@ class Ability
     can :manage, RecipeFood, recipe: { user_id: user.id }
 
     can :read, Recipe, public: true
+
+    can :create, RecipeFood
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?

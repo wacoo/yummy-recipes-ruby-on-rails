@@ -47,7 +47,7 @@ class RecipesController < ApplicationController
 
   def general_shopping_list
     @user = current_user
-    @recipes = @user.recipes.includes(foods: :recipe_foods)
+    @recipes = @user.recipes.includes(:foods, :recipe_foods)
 
     @shopping_list = []
 
