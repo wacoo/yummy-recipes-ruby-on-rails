@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem install bundler -v '~> 2.5.a'
+gem 'bundler', '~> 2.5.a'
 ruby '2.7.4'
 gem 'cancancan'
 gem 'devise'
