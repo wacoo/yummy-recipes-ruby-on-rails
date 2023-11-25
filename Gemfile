@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'bundler', '~> 2.5.a'
+gem 'bundler', '~> 2.4.22'
 ruby '2.7.4'
 gem 'cancancan'
 gem 'devise'
