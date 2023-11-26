@@ -310,7 +310,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  bundler
+  bundler (>= 2.0.0, <= 2.6.0)
   cancancan
   capybara
   debug
