@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'bundler', '~> 2.4.22'
-ruby '2.7.4'
+ruby '3.2.2'
 gem 'cancancan'
 gem 'devise'
 gem 'net-http'
