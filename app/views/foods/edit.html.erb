@@ -1,0 +1,21 @@
+<h1>Edit Ingredient</h1>
+
+<%= form_with(model: @food, url: food_path(@food), method: :patch, class: "form container") do |form| %>
+  <div class="form-wrapper">
+    <div class="field-wrapper">
+      <%= form.label :name, class: "label" %>
+      <%= form.text_field :name, class: "field" %>
+    </div>
+    <div class="field-wrapper">
+      <%= form.label :quantity, class: "label" %>
+      <%= form.number_field :quantity, class: "field", min: 1, required: true %>
+    </div>
+    <div class="field-wrapper">
+      <%= form.label :price, class: "label" %>
+      <%= form.number_field :price, class: "field", step: 0.01, required: true %>
+    </div>
+    <div class="field-wrapper">
+      <%= form.submit "Update Ingredient", class: "btn-primary" %>
+    </div>
+  </div>
+<% end %>

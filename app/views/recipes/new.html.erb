@@ -1,0 +1,37 @@
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+<%= form_with(model: @recipe, url: recipes_path, local: true) do |form| %>
+  <div class="form-warpper">
+    <div class="field-wrapper">
+      <%= form.label :name, class: 'label' %>
+      <%= form.text_field :name, class: 'field' %>
+    </div>
+  
+    <div class="field-wrapper">
+      <%= form.label :preparation_time, class: 'label' %>
+      <%= form.number_field :preparation_time, class: 'field' %>
+    </div>
+  
+    <div class="field-wrapper">
+      <%= form.label :cooking_time, class: 'label' %>
+      <%= form.number_field :cooking_time, class: 'field' %>
+    </div>
+  
+    <div class="field-wrapper">
+      <%= form.label :description, class: 'label' %>
+      <%= form.text_area :description, class: 'field' %>
+    </div>
+  
+    <div class="field-wrapper">
+      <div class="checkbox-wrapper">
+        <%= form.check_box :public, class: 'checkbox' %>
+        <%= form.label :public %>
+      </div>
+  </div>
+
+    <div class="rec-new-submit">
+      <%= form.submit "CREATE RECIPE", class: "btn-primary"%>
+    </div>
+  </div>
+<% end %>

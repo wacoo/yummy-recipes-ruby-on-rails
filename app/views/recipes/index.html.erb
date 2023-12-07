@@ -1,0 +1,25 @@
+
+<div class="add-rec">
+    <% if (can? :create, Recipe) %>
+        <%= link_to 'ADD RECIPE', new_recipe_path, class:'btn-primary' %>
+    <% end %>
+</div>
+
+<% @recipes.each do |recipe| %>
+    <% if (can? :read, recipe) %>
+        <div class="recipe">
+            <div class="rec-name">
+                <h1><%= link_to recipe.name, recipe_path(recipe) %></h1>
+                <% if current_user == recipe.user || current_user.role == 'Admin' %>
+                    <%= form_with model: recipe, url: recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' } do |form| %>
+                        <%= form.submit 'REMOVE', class: "btn-primary" %>
+                    <% end %>
+                <% end %>
+            </div>
+            <div class="decription">
+                <p><%= recipe.description %></p>
+            </div>
+        </div>
+    <% end %>
+    
+<% end %>
